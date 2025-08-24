@@ -179,28 +179,6 @@ async def delivery_service(message: Message):
     except FileNotFoundError:
         await message.answer(text, reply_markup=kb.get_service_action("Доставка грузов"))
 
-# Перевод денег
-@router.message(F.text == "💰 Перевод денег")
-async def money_transfer(message: Message):
-    text = """
-💰 <b>Перевод денег в Китай</b>
-
-Быстрый и безопасный перевод денег в Китай по выгодному курсу.
-
-• Минимальные комиссии
-• Быстрое зачисление
-• Безопасные переводы
-    """
-    
-    try:
-        photo_path = get_file_path("money.jpg")
-        photo = FSInputFile(photo_path)
-        await message.answer_photo(photo=photo, caption=text, reply_markup=kb.get_service_action("Перевод денег"))
-    except FileNotFoundError:
-        await message.answer(text, reply_markup=kb.get_service_action("Перевод денег"))
-    
-    await message.answer("⬅️ Для возврата в меню нажмите кнопку ниже:", reply_markup=kb.get_back_to_menu())
-
 # Остальные услуги (аналогично)
 @router.message(F.text == "🛒 Выкуп товара")
 async def product_buyout(message: Message):
