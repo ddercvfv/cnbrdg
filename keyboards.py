@@ -66,7 +66,6 @@ def get_about_us_inline():
     builder = InlineKeyboardBuilder()
     builder.add(
         InlineKeyboardButton(text="🌐 Наш сайт", url="https://cnbridge.ru"),
-        InlineKeyboardButton(text="📍 Адрес", url=YANDEX_MAPS_LINK),
         InlineKeyboardButton(text="🏢 Карточка организации", callback_data="company_card"),
         InlineKeyboardButton(text="📱 Наши соцсети", callback_data="social_networks")
     )
