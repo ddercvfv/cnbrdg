@@ -21,7 +21,6 @@ def get_services_menu():
     builder = ReplyKeyboardBuilder()
     builder.add(
         KeyboardButton(text="🚚 Доставка грузов"),
-        KeyboardButton(text="💰 Перевод денег"),
         KeyboardButton(text="🛒 Выкуп товара"),
         KeyboardButton(text="🔍 Поиск поставщика"),
         KeyboardButton(text="📦 Заказ образцов"),
@@ -29,7 +28,7 @@ def get_services_menu():
         KeyboardButton(text="📜 Сертификация"),
         KeyboardButton(text="⬅️ Назад в меню")
     )
-    builder.adjust(2, 2, 2, 1, 1)
+    builder.adjust(2, 2, 2, 1)
     return builder.as_markup(resize_keyboard=True)
 
 def get_delivery_methods():
@@ -66,6 +65,7 @@ def get_about_us_inline():
     builder = InlineKeyboardBuilder()
     builder.add(
         InlineKeyboardButton(text="🌐 Наш сайт", url="https://cnbridge.ru"),
+        InlineKeyboardButton(text="📍 Адрес", url=YANDEX_MAPS_LINK),
         InlineKeyboardButton(text="🏢 Карточка организации", callback_data="company_card"),
         InlineKeyboardButton(text="📱 Наши соцсети", callback_data="social_networks")
     )
@@ -98,18 +98,11 @@ def get_materials_menu():
 def get_service_action(service_name: str):
     """Кнопки для услуг"""
     builder = InlineKeyboardBuilder()
-    if service_name == "Перевод денег":
-        builder.add(
-            InlineKeyboardButton(text="📈 Курс", url=COURSE_POST_LINK),
-            InlineKeyboardButton(text="📞 Получить услугу", callback_data="get_service_Перевод денег")
-        )
-        builder.adjust(2)
-    else:
-        service_callback = service_name.replace(" ", "_")
-        builder.add(
-            InlineKeyboardButton(text="📞 Получить услугу", callback_data=f"get_service_{service_callback}")
-        )
-        builder.adjust(1)
+    service_callback = service_name.replace(" ", "_")
+    builder.add(
+        InlineKeyboardButton(text="📞 Получить услугу", callback_data=f"get_service_{service_callback}")
+    )
+    builder.adjust(1)
     return builder.as_markup()
 
 def get_admin_keyboard():
