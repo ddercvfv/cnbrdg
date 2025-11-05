@@ -10,7 +10,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))  # ID администратора для рассылки
 
 # Ссылки и данные
-REVIEWS_CHANNEL = "https://t.me/estasiacars"
+REVIEWS_CHANNEL = "https://t.me/+FrQML_-tGl4zZGMy"
 COURSE_POST_LINK = "https://t.me/cnchange/185"
 YANDEX_MAPS_LINK = "https://yandex.ru/maps/-/CHx3IY9h"
 
